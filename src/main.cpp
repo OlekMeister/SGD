@@ -18,8 +18,9 @@ void init();
 void loadMedia();
 void close();
 void main_menu();
-void game();
+void game(const string& character);
 void renderGameOverText();
+void character_selection();
 
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
@@ -119,7 +120,7 @@ void main_menu() {
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
                     case SDLK_1:
-                        game();
+                        character_selection();
                         break;
                     case SDLK_ESCAPE:
                         quit = true;
@@ -141,6 +142,56 @@ void main_menu() {
     TTF_CloseFont(font);
 }
 
+void character_selection() {
+    TTF_Font* font = TTF_OpenFont("arial.ttf", 28);
+    SDL_Color textColor = { 255, 255, 255, 255 };
+    SDL_Color outlineColor = { 0, 0, 0, 255 };
+
+    bool quit = false;
+    SDL_Event e;
+    string selectedCharacter = "";
+
+    while (!quit && selectedCharacter == "") {
+        while (SDL_PollEvent(&e) != 0) {
+            if (e.type == SDL_QUIT) {
+                quit = true;
+            }
+            if (e.type == SDL_KEYDOWN) {
+                switch (e.key.keysym.sym) {
+                    case SDLK_1:
+                        selectedCharacter = "bunny_otis.png";
+                        break;
+                    case SDLK_2:
+                        selectedCharacter = "bunny_pyrka.png";
+                        break;
+                    case SDLK_3:
+                        selectedCharacter = "bunny_osioł.png";
+                        break;
+                    case SDLK_ESCAPE:
+                        quit = true;
+                        break;
+                }
+            }
+        }
+
+        SDL_RenderClear(gRenderer);
+
+        drawTextWithOutline("Choose your character:", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 150);
+        drawTextWithOutline("1. Otis", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 - 50);
+        drawTextWithOutline("2. Pyrka", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 + 10);
+        drawTextWithOutline("3. Osioł", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 + 70);
+        drawTextWithOutline("ESC. Back to Menu", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 + 130);
+
+        SDL_RenderPresent(gRenderer);
+    }
+
+    if (!quit) {
+        game(selectedCharacter);
+    }
+
+    TTF_CloseFont(font);
+}
+
 void renderGameOverText() {
     TTF_Font* font = TTF_OpenFont("arial.ttf", 72);
     SDL_Color textColor = { 255, 0, 0, 255 };
@@ -152,7 +203,7 @@ void renderGameOverText() {
     TTF_CloseFont(font);
 }
 
-void game() {
+void game(const string& character) {
     vector<Platform> platforms;
 
     // PIERWSZA PLATFORMA ZAWSZE MUSI BYĆ POD GRACZEM
@@ -178,7 +229,7 @@ void game() {
         platforms.push_back(Platform(x, y, 100, 10));
     }
 
-    Player player(platforms, gJumpSound);
+    Player player(platforms, gJumpSound, character);
     bool quit = false;
     SDL_Event e;
 
@@ -273,8 +324,6 @@ void game() {
     Mix_HaltMusic();
     Mix_PlayMusic(gMenuMusic, -1);
 }
-
-
 
 void close() {
     SDL_DestroyTexture(gMenuBackground);

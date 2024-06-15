@@ -4,13 +4,14 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <vector>
+#include <string> // Dodaj ten include
 #include "Platform.h"
 
 using namespace std;
 
 class Player {
 public:
-    Player(vector<Platform>& platforms, Mix_Chunk* jumpSound); // DŹWIĘK SKOKU
+    Player(vector<Platform>& platforms, Mix_Chunk* jumpSound, const string& characterTexture); // DŹWIĘK SKOKU
     void update();
     void render(SDL_Renderer* renderer);
     void jump();

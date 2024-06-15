@@ -14,7 +14,14 @@
       <change beforePath="$PROJECT_DIR$/build/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/BunnyWorld.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/BunnyWorld.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/pictures/bunny_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/pictures/bunny_transparent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/bunny_otis.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/bunny_pyrka.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718445984189</updated>
       <workItem from="1718445985082" duration="3128000" />
-      <workItem from="1718450473483" duration="23898000" />
+      <workItem from="1718450473483" duration="25184000" />
     </task>
     <servers />
   </component>

@@ -2,12 +2,13 @@
 #include "Constants.h"
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <string> // Dodaj ten include
 
 extern SDL_Renderer* gRenderer;
 
-Player::Player(vector<Platform>& platforms, Mix_Chunk* jumpSound)
+Player::Player(vector<Platform>& platforms, Mix_Chunk* jumpSound, const string& characterTexture)
     : mPlatforms(platforms), mVelocityX(0), mVelocityY(0), mAccelerationY(1), mJumpCount(0), mOnGround(true), mFacingLeft(true), mJumpSound(jumpSound) {
-    mTexture = IMG_LoadTexture(gRenderer, "pictures/bunny_transparent.png");
+    mTexture = IMG_LoadTexture(gRenderer, ("pictures/" + characterTexture).c_str());
     if (!mTexture) {
         std::cerr << "Failed to load texture: " << IMG_GetError() << std::endl;
     }
