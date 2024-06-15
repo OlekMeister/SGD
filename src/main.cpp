@@ -154,7 +154,29 @@ void renderGameOverText() {
 
 void game() {
     vector<Platform> platforms;
-    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT - 50, 100, 10));
+
+    // PIERWSZA PLATFORMA ZAWSZE MUSI BYĆ POD GRACZEM
+    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT - 150, 100, 10));
+
+    // GENEROWANIE PLATFORM TAK ŻEBY GRACZ MIAŁ ZAWSZE FIZYCZNĄ MOŻLIWOŚĆ DO NIEJ DOSKOCZYĆ
+    int maxJumpHeight = 200;
+    int maxJumpWidth = 200;
+    int platformSpacing = 150;
+    int numLevels = SCREEN_HEIGHT / platformSpacing;
+
+    for (int i = 1; i < numLevels; ++i) {
+        int x = rand() % (SCREEN_WIDTH - 100);
+        int y = SCREEN_HEIGHT - (i * platformSpacing) - 150; // PLATFORMY ROZMIESZCZONE JAK PLATFORMSPACING PIKSELI
+
+        // UPEWNIAMY SIĘ ŻE MOŻNA HORYZONTALNIE RÓWNIEŻ DOSKOCZYĆ
+        if (platforms.back().getRect().x + 100 + maxJumpWidth < x || x < platforms.back().getRect().x - maxJumpWidth) {
+            x = platforms.back().getRect().x + (rand() % (2 * maxJumpWidth) - maxJumpWidth);
+            if (x < 0) x = 0;
+            if (x > SCREEN_WIDTH - 100) x = SCREEN_WIDTH - 100;
+        }
+
+        platforms.push_back(Platform(x, y, 100, 10));
+    }
 
     Player player(platforms, gJumpSound);
     bool quit = false;
@@ -251,6 +273,8 @@ void game() {
     Mix_HaltMusic();
     Mix_PlayMusic(gMenuMusic, -1);
 }
+
+
 
 void close() {
     SDL_DestroyTexture(gMenuBackground);
