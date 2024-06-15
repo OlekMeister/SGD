@@ -9,14 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/BunnyWorld.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/BunnyWorld.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718445984189</updated>
       <workItem from="1718445985082" duration="3128000" />
-      <workItem from="1718450473483" duration="21589000" />
+      <workItem from="1718450473483" duration="22007000" />
     </task>
     <servers />
   </component>
