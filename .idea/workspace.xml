@@ -9,7 +9,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="" />
+    <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/pictures/bunny_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/pictures/bunny_transparent.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718445984189</updated>
       <workItem from="1718445985082" duration="3128000" />
-      <workItem from="1718450473483" duration="22007000" />
+      <workItem from="1718450473483" duration="22336000" />
     </task>
     <servers />
   </component>
