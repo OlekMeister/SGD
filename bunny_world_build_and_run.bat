@@ -1,20 +1,29 @@
 @echo off
-setlocal
-
 echo Kompilowanie programu...
-g++ main.cpp Player.cpp Platform.cpp -o BunnyWorld -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+mkdir build 2>nul
+cd build
+cmake ..
 if %errorlevel% neq 0 (
     echo Kompilacja nie powiodła się!
     pause
-    endlocal
     exit /b %errorlevel%
 )
-
+cmake --build .
+if %errorlevel% neq 0 (
+    echo Kompilacja nie powiodła się!
+    pause
+    exit /b %errorlevel%
+)
 echo Kompilacja zakończona sukcesem.
+cd ..
+
+echo Kopiowanie plików...
+copy SDL2_Libraries\*.dll build\
+copy SDL2_Libraries\arial.ttf build\
+xcopy /E /I /Y pictures build\pictures\
+xcopy /E /I /Y sound build\sound\
 
 echo Uruchamianie programu...
-set PATH=%PATH%;%~dp0SDL2_Libraries
+cd build
 BunnyWorld.exe
-
-endlocal
 pause

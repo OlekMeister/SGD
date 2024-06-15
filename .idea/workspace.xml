@@ -10,19 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Constants.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Player.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Player.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SGD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SGD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pictures/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sound/Caketown.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/All free stuff for my game.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arial.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/SDL2_Libraries/Arial.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BunnyWorld.exe" beforeDir="false" afterPath="$PROJECT_DIR$/BunnyWorld.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bunny_world_build_and_run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/bunny_world_build_and_run.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aleksander\Desktop\SGD\SDL2_Libraries" />
+      <recent name="C:\Users\Aleksander\Desktop\SGD\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718445984189</updated>
       <workItem from="1718445985082" duration="3128000" />
-      <workItem from="1718450473483" duration="4458000" />
+      <workItem from="1718450473483" duration="8445000" />
     </task>
     <servers />
   </component>
