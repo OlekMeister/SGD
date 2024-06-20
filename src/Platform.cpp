@@ -13,7 +13,7 @@ Platform::Platform(int x, int y, int width, int height, const std::string& textu
 
 void Platform::render(SDL_Renderer* renderer) {
     SDL_Rect renderRect = mRect;
-    renderRect.y -= camera.y; // Adjust for camera offset
+    renderRect.y -= camera.y;
     SDL_RenderCopy(renderer, mTexture, NULL, &renderRect);
 }
 

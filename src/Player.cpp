@@ -8,8 +8,8 @@ extern SDL_Renderer* gRenderer;
 extern Camera camera;
 
 Player::Player(std::vector<Platform>& platforms, Mix_Chunk* jumpSound, const std::string& characterTexture)
-    : mPlatforms(platforms), mVelocityX(0), mVelocityY(0), mAccelerationY(1), mJumpCount(0), mOnGround(true), mFacingLeft(true), mJumpSound(jumpSound) {
-    mTexture = IMG_LoadTexture(gRenderer, ("pictures/" + characterTexture).c_str());
+    : mPlatforms(platforms), mVelocityX(0), mVelocityY(0), mAccelerationY(1), mJumpCount(0), mOnGround(true), mFacingLeft(true), mSliding(false), mJumpSound(jumpSound) {
+    mTexture = IMG_LoadTexture(gRenderer, characterTexture.c_str());
     if (!mTexture) {
         std::cerr << "Failed to load texture: " << IMG_GetError() << std::endl;
     }
@@ -17,17 +17,11 @@ Player::Player(std::vector<Platform>& platforms, Mix_Chunk* jumpSound, const std
     mRect.y = SCREEN_HEIGHT / 2;
     mRect.w = 75;
     mRect.h = 100;
-    mTexturePath = "pictures/stone.png";
+    mTexturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png";
 }
 
 void Player::update() {
-    if (mTexturePath == "pictures/ice.png") {
-        mVelocityX *= 0.98;
-    }
-
-    if (mTexturePath != "pictures/swamp.png") {
-        mVelocityY += mAccelerationY;
-    }
+    mVelocityY += mAccelerationY;
 
     mRect.x += mVelocityX;
     mRect.y += mVelocityY;
@@ -37,24 +31,47 @@ void Player::update() {
         SDL_Rect platformRect = platform.getRect();
         if (SDL_HasIntersection(&mRect, &platformRect)) {
             if (mRect.y + mRect.h - mVelocityY <= platformRect.y) {
-                // Landing on platform
                 mRect.y = platformRect.y - mRect.h;
                 mVelocityY = 0;
                 mJumpCount = 0;
                 mOnGround = true;
                 mTexturePath = platform.getTexturePath();
 
-                if (mTexturePath == "pictures/swamp.png") {
+                if (mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
                     mVelocityX = 0;
+                    mSliding = false;
+                } else if (mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/ice.png") {
+                    mSliding = true;
+                } else {
+                    mSliding = false;
                 }
+                std::cout << "Landed on platform. TexturePath: " << mTexturePath << std::endl;
             }
         }
+    }
+
+    if (mSliding && mOnGround) {
+        if (mVelocityX > 0) {
+            mVelocityX -= 1;
+            if (mVelocityX < 0) {
+                mVelocityX = 0;
+            }
+        } else if (mVelocityX < 0) {
+            mVelocityX += 1;
+            if (mVelocityX > 0) {
+                mVelocityX = 0;
+            }
+        }
+        if (mVelocityX == 0) {
+            mVelocityX = mFacingLeft ? -2 : 2;
+        }
+        std::cout << "On ice platform. VelocityX: " << mVelocityX << std::endl;
     }
 }
 
 void Player::render(SDL_Renderer* renderer) {
     SDL_Rect renderRect = mRect;
-    renderRect.y -= camera.y; // Adjust for camera offset
+    renderRect.y -= camera.y;
     SDL_RendererFlip flip = mFacingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
     SDL_RenderCopyEx(renderer, mTexture, NULL, &renderRect, 0, NULL, flip);
 }
@@ -69,21 +86,37 @@ void Player::jump() {
 }
 
 void Player::moveLeft() {
-    if (mTexturePath != "pictures/swamp.png") {
-        mVelocityX = -5;
-        mFacingLeft = true;
+    if (mOnGround && mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
+        return;
     }
+    if (mSliding) {
+        if (mVelocityX > -10) {
+            mVelocityX -= 5;
+        }
+    } else {
+        mVelocityX = -5;
+    }
+    mFacingLeft = true;
 }
 
 void Player::moveRight() {
-    if (mTexturePath != "pictures/swamp.png") {
-        mVelocityX = 5;
-        mFacingLeft = false;
+    if (mOnGround && mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
+        return;
     }
+    if (mSliding) {
+        if (mVelocityX < 10) {
+            mVelocityX += 5;
+        }
+    } else {
+        mVelocityX = 5;
+    }
+    mFacingLeft = false;
 }
 
 void Player::stop() {
-    mVelocityX = 0;
+    if (!mSliding) {
+        mVelocityX = 0;
+    }
 }
 
 int Player::getVelocityX() const {
@@ -94,6 +127,6 @@ SDL_Rect Player::getRect() const {
     return mRect;
 }
 
-const std::string& Player::getTexturePath() const {
-    return mTexturePath;
+void Player::setSliding(bool sliding) {
+    mSliding = sliding;
 }

@@ -52,21 +52,21 @@ build cmake_object_order_depends_target_BunnyWorld: phony || CMakeFiles/BunnyWor
 build CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_Debug C$:/Users/Aleksander/Desktop/SGD/src/Main.cpp || cmake_object_order_depends_target_BunnyWorld
   DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Main.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/msys64/mingw64/include
+  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/include
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
 build CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_Debug C$:/Users/Aleksander/Desktop/SGD/src/Player.cpp || cmake_object_order_depends_target_BunnyWorld
   DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Player.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/msys64/mingw64/include
+  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/include
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
 build CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_Debug C$:/Users/Aleksander/Desktop/SGD/src/Platform.cpp || cmake_object_order_depends_target_BunnyWorld
   DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Platform.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/msys64/mingw64/include
+  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/include
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
@@ -78,9 +78,10 @@ build CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj: CXX_COMPILER__BunnyWorld_u
 #############################################
 # Link the executable BunnyWorld.exe
 
-build BunnyWorld.exe: CXX_EXECUTABLE_LINKER__BunnyWorld_Debug CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj | C$:/msys64/mingw64/lib/libSDL2.dll.a C$:/msys64/mingw64/lib/libSDL2main.a C$:/msys64/mingw64/lib/libSDL2_image.dll.a C$:/msys64/mingw64/lib/libSDL2_mixer.dll.a C$:/msys64/mingw64/lib/libSDL2_ttf.dll.a
+build BunnyWorld.exe: CXX_EXECUTABLE_LINKER__BunnyWorld_Debug CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj | C$:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2.dll.a C$:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_image.dll.a C$:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a C$:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a
   FLAGS = -g
-  LINK_LIBRARIES = C:/msys64/mingw64/lib/libSDL2.dll.a  C:/msys64/mingw64/lib/libSDL2main.a  C:/msys64/mingw64/lib/libSDL2_image.dll.a  C:/msys64/mingw64/lib/libSDL2_mixer.dll.a  C:/msys64/mingw64/lib/libSDL2_ttf.dll.a  -lmingw32  -lSDL2  -lSDL2main  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = C:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2.dll.a  C:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  C:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a  C:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  -lmingw32  -lkernel32  -luser32  -lgdi32  -lwinspool  -lshell32  -lole32  -loleaut32  -luuid  -lcomdlg32  -ladvapi32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_PATH = -LC:/Users/Aleksander/Desktop/SGD/SDL2-devel-2.30.4-mingw/SDL2-2.30.4/x86_64-w64-mingw32/lib
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

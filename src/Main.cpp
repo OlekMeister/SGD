@@ -37,62 +37,61 @@ void init() {
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     gWindow = SDL_CreateWindow("Bunny World", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
-
     int imgFlags = IMG_INIT_PNG;
     IMG_Init(imgFlags);
-
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-
     TTF_Init();
 }
 
-SDL_Texture* loadTexture(string path) {
-    SDL_Texture* newTexture = NULL;
+SDL_Texture* loadTexture(const std::string& path) {
     SDL_Surface* loadedSurface = IMG_Load(path.c_str());
-    if (loadedSurface != NULL) {
-        newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
-        SDL_FreeSurface(loadedSurface);
-    }
+    SDL_Texture* newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+    SDL_FreeSurface(loadedSurface);
     return newTexture;
 }
 
 void loadMedia() {
-    gMenuBackground = loadTexture("pictures/bunnyworld.png");
-    gGameBackground = loadTexture("pictures/background_2.png");
-    gMenuMusic = Mix_LoadMUS("sound/menu.mp3");
-    gGameMusic = Mix_LoadMUS("sound/game.wav");
-    gJumpSound = Mix_LoadWAV("sound/jump.wav");
-    gGameOverSound = Mix_LoadWAV("sound/gameover.wav");
+    gMenuBackground = loadTexture("C:/Users/Aleksander/Desktop/SGD/pictures/bunnyworld.png");
+    gGameBackground = loadTexture("C:/Users/Aleksander/Desktop/SGD/pictures/background_2.png");
+    gMenuMusic = Mix_LoadMUS("C:/Users/Aleksander/Desktop/SGD/sound/menu.mp3");
+    gGameMusic = Mix_LoadMUS("C:/Users/Aleksander/Desktop/SGD/sound/game.wav");
+    gJumpSound = Mix_LoadWAV("C:/Users/Aleksander/Desktop/SGD/sound/jump.wav");
+    gGameOverSound = Mix_LoadWAV("C:/Users/Aleksander/Desktop/SGD/sound/gameover.wav");
 }
 
 void drawTextWithOutline(const string& text, TTF_Font* font, SDL_Color textColor, SDL_Color outlineColor, int x, int y) {
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
     SDL_Surface* outlineSurface = TTF_RenderText_Solid(font, text.c_str(), outlineColor);
-
     SDL_Texture* textTexture = SDL_CreateTextureFromSurface(gRenderer, textSurface);
     SDL_Texture* outlineTexture = SDL_CreateTextureFromSurface(gRenderer, outlineSurface);
-
     SDL_Rect textRect = { x, y, textSurface->w, textSurface->h };
     SDL_Rect outlineRect = { x - 2, y - 2, outlineSurface->w, outlineSurface->h };
-
     SDL_RenderCopy(gRenderer, outlineTexture, NULL, &outlineRect);
     SDL_RenderCopy(gRenderer, textTexture, NULL, &textRect);
-
     SDL_FreeSurface(textSurface);
     SDL_FreeSurface(outlineSurface);
     SDL_DestroyTexture(textTexture);
     SDL_DestroyTexture(outlineTexture);
 }
 
-void main_menu() {
-    TTF_Font* font = TTF_OpenFont("arial.ttf", 28);
-    SDL_Color textColor = { 255, 255, 255, 255 };
-    SDL_Color outlineColor = { 0, 0, 0, 255 };
+void drawMenuOption(const std::string& text, TTF_Font* font, SDL_Color textColor, int x, int y, bool selected) {
+    if (selected) {
+        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);  // Yellow highlight
+        SDL_Rect highlightRect = { x - 10, y - 5, 220, 40 };
+        SDL_RenderFillRect(gRenderer, &highlightRect);
+        SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);  // Reset to black
+    }
+    drawTextWithOutline(text, font, textColor, { 0, 0, 0, 255 }, x, y);
+}
 
-    Mix_PlayMusic(gMenuMusic, -1);
+void main_menu() {
+    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 28);
+    SDL_Color textColor = { 255, 255, 255, 255 };
 
     bool quit = false;
     SDL_Event e;
+    int selectedOption = 0;
+    const int totalOptions = 2;
 
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
@@ -101,53 +100,84 @@ void main_menu() {
             }
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
-                    case SDLK_1:
-                        character_selection();
+                    case SDLK_UP:
+                        selectedOption = (selectedOption - 1 + totalOptions) % totalOptions;
                         break;
-                    case SDLK_ESCAPE:
-                        quit = true;
+                    case SDLK_DOWN:
+                        selectedOption = (selectedOption + 1) % totalOptions;
+                        break;
+                    case SDLK_RETURN:
+                        if (selectedOption == 0) {
+                            character_selection();
+                        } else if (selectedOption == 1) {
+                            quit = true;
+                        }
                         break;
                 }
             }
         }
 
         SDL_RenderClear(gRenderer);
-        SDL_RenderCopy(gRenderer, gMenuBackground, NULL, NULL);
-
-        drawTextWithOutline("1. Start Game", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 - 50);
-        drawTextWithOutline("ESC. Quit", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 + 10);
-
+        SDL_RenderCopy(gRenderer, gMenuBackground, NULL, NULL); // Display menu background
+        drawMenuOption("Rozpocznij gre", font, textColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 - 50, selectedOption == 0);
+        drawMenuOption("Wyjscie", font, textColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 + 10, selectedOption == 1);
         SDL_RenderPresent(gRenderer);
     }
 
-    Mix_HaltMusic();
     TTF_CloseFont(font);
 }
 
+void drawCharacterOption(const std::string& text, SDL_Texture* texture, TTF_Font* font, SDL_Color textColor, int x, int y, bool selected) {
+    if (selected) {
+        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);  // Yellow highlight
+        SDL_Rect highlightRect = { x - 10, y - 5, 220, 100 };
+        SDL_RenderFillRect(gRenderer, &highlightRect);
+        SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);  // Reset to background color
+    }
+    SDL_Rect imageRect = { x, y, 75, 75 };
+    SDL_RenderCopy(gRenderer, texture, NULL, &imageRect);
+    drawTextWithOutline(text, font, textColor, { 0, 0, 0, 255 }, x + 100, y + 20);
+}
+
 void character_selection() {
-    TTF_Font* font = TTF_OpenFont("arial.ttf", 28);
+    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 28);
+
+    SDL_Texture* otisTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_otis.png");
+    SDL_Texture* pyrkaTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_pyrka.png");
+    SDL_Texture* osiolTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_osioł.png");
+
     SDL_Color textColor = { 255, 255, 255, 255 };
-    SDL_Color outlineColor = { 0, 0, 0, 255 };
+    SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);  // Ustawienie morelowego tła
 
     bool quit = false;
     SDL_Event e;
-    string selectedCharacter = "";
+    int selectedOption = 0;
+    const int totalOptions = 3;
 
-    while (!quit && selectedCharacter == "") {
+    while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 quit = true;
             }
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
-                    case SDLK_1:
-                        selectedCharacter = "bunny_otis.png";
+                    case SDLK_UP:
+                        selectedOption = (selectedOption - 1 + totalOptions) % totalOptions;
                         break;
-                    case SDLK_2:
-                        selectedCharacter = "bunny_pyrka.png";
+                    case SDLK_DOWN:
+                        selectedOption = (selectedOption + 1) % totalOptions;
                         break;
-                    case SDLK_3:
-                        selectedCharacter = "bunny_osioł.png";
+                    case SDLK_RETURN:
+                        if (selectedOption == 0) {
+                            resetGame(); // Reset camera and other settings before starting the game
+                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_otis.png");
+                        } else if (selectedOption == 1) {
+                            resetGame(); // Reset camera and other settings before starting the game
+                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_pyrka.png");
+                        } else if (selectedOption == 2) {
+                            resetGame(); // Reset camera and other settings before starting the game
+                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_osioł.png");
+                        }
                         break;
                     case SDLK_ESCAPE:
                         quit = true;
@@ -157,34 +187,26 @@ void character_selection() {
         }
 
         SDL_RenderClear(gRenderer);
-
-        drawTextWithOutline("Choose your character:", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 150);
-        drawTextWithOutline("1. Otis", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 - 50);
-        drawTextWithOutline("2. Pyrka", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 + 10);
-        drawTextWithOutline("3. Osioł", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 + 70);
-        drawTextWithOutline("ESC. Back to Menu", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 + 130);
-
+        drawCharacterOption("Otis", otisTexture, font, textColor, SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 - 100, selectedOption == 0);
+        drawCharacterOption("Pyrka", pyrkaTexture, font, textColor, SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2, selectedOption == 1);
+        drawCharacterOption("Osiol", osiolTexture, font, textColor, SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 + 100, selectedOption == 2);
         SDL_RenderPresent(gRenderer);
     }
 
-    if (!quit) {
-        resetGame();  // Resetowanie gry przed rozpoczęciem nowej gry
-        game(selectedCharacter);
-    }
-
     TTF_CloseFont(font);
+    SDL_DestroyTexture(otisTexture);
+    SDL_DestroyTexture(pyrkaTexture);
+    SDL_DestroyTexture(osiolTexture);
 }
 
 void renderGameOverText(int score) {
-    TTF_Font* font = TTF_OpenFont("arial.ttf", 72);
+    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 72);
     SDL_Color textColor = { 255, 0, 0, 255 };
     SDL_Color outlineColor = { 0, 0, 0, 255 };
 
     drawTextWithOutline("Koniec gry", font, textColor, outlineColor, SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 - 150);
     drawTextWithOutline("Wynik: " + to_string(score), font, textColor, outlineColor, SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2);
-
     SDL_RenderPresent(gRenderer);
-
     TTF_CloseFont(font);
 }
 
@@ -203,11 +225,11 @@ void generatePlatforms(vector<Platform>& platforms, int& lastPlatformY, int scre
             if (x > SCREEN_WIDTH - 100) x = SCREEN_WIDTH - 100;
         }
 
-        std::string texturePath = "pictures/stone.png";
-        if (score >= 50) {
-            texturePath = "pictures/swamp.png";
-        } else if (score >= 20) {
-            texturePath = "pictures/ice.png";
+        std::string texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png";
+        if (score >= 37) {
+            texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png";
+        } else if (score >= 7) {
+            texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/ice.png";
         }
 
         platforms.push_back(Platform(x, y, 150, 30, texturePath));
@@ -218,7 +240,7 @@ void generatePlatforms(vector<Platform>& platforms, int& lastPlatformY, int scre
 void game(const string& character) {
     vector<Platform> platforms;
     int lastPlatformY = SCREEN_HEIGHT - 150;
-    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, lastPlatformY, 150, 30, "pictures/stone.png"));
+    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, lastPlatformY, 150, 30, "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png"));
 
     Player player(platforms, gJumpSound, character);
     bool quit = false;
@@ -354,7 +376,7 @@ void close() {
     gRenderer = NULL;
     gWindow = NULL;
     IMG_Quit();
-    Mix_Quit();
+    Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();
 }
@@ -363,9 +385,7 @@ int main(int argc, char* args[]) {
     init();
     loadMedia();
     Mix_PlayMusic(gMenuMusic, -1);
-
     main_menu();
-
     close();
     return 0;
 }

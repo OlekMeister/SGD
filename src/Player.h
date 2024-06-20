@@ -18,7 +18,7 @@ public:
     void stop();
     int getVelocityX() const;
     SDL_Rect getRect() const;
-    const std::string& getTexturePath() const;
+    void setSliding(bool sliding);
 
 private:
     SDL_Texture* mTexture;
@@ -30,6 +30,7 @@ private:
     int mJumpCount;
     bool mOnGround;
     bool mFacingLeft;
+    bool mSliding;
     Mix_Chunk* mJumpSound;
     std::string mTexturePath;
 };
