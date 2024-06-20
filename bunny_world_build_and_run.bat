@@ -1,29 +1,22 @@
 @echo off
 echo Kompilowanie programu...
-mkdir build 2>nul
+mkdir build
 cd build
 cmake ..
-if %errorlevel% neq 0 (
-    echo Kompilacja nie powiodła się!
-    pause
-    exit /b %errorlevel%
-)
+if %errorlevel% neq 0 goto :cmake_failed
 cmake --build .
-if %errorlevel% neq 0 (
-    echo Kompilacja nie powiodła się!
-    pause
-    exit /b %errorlevel%
-)
-echo Kompilacja zakończona sukcesem.
-cd ..
-
-echo Kopiowanie plików...
-copy SDL2_Libraries\*.dll build\
-copy SDL2_Libraries\arial.ttf build\
-xcopy /E /I /Y pictures build\pictures\
-xcopy /E /I /Y sound build\sound\
-
+if %errorlevel% neq 0 goto :build_failed
 echo Uruchamianie programu...
-cd build
-BunnyWorld.exe
+.\BunnyWorld.exe 2> error.log
+goto :end
+
+:cmake_failed
+echo CMake configuration failed!
+goto :end
+
+:build_failed
+echo Build failed!
+goto :end
+
+:end
 pause

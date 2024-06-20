@@ -3,6 +3,17 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="BunnyWorld" targetName="BunnyWorld" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
@@ -10,18 +21,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8f4336f-4f33-466a-bf92-f6cfdd034f25" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SGD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SGD.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/BunnyWorld.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/BunnyWorld.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/BunnyWorld.dir/src/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pictures/bunny_otis.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pictures/bunny_pyrka.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/pictures/background_2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bunny_world_build_and_run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/bunny_world_build_and_run.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/background.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/background_2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/background_3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/background_4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/background_5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/bath.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +55,15 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1.3" />
+    <option name="productBranch" value="Classic" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -44,6 +75,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;CMake Application.BunnyWorld.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Debug.BunnyWorld.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -66,6 +99,30 @@
       <recent name="C:\Users\Aleksander\Desktop\SGD\src" />
     </key>
   </component>
+  <component name="RunManager" selected="CMake Application.BunnyWorld">
+    <configuration name="BunnyWorld" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="BunnyWorld" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BunnyWorld" TARGET_NAME="BunnyWorld" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BunnyWorld" RUN_TARGET_NAME="BunnyWorld">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.BunnyWorld" />
+      <item itemvalue="CMake Debug.BunnyWorld" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="CMake Debug.BunnyWorld" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,10 +133,17 @@
       <updated>1718445984189</updated>
       <workItem from="1718445985082" duration="3128000" />
       <workItem from="1718450473483" duration="25184000" />
+      <workItem from="1718832580854" duration="10687000" />
+      <workItem from="1718845380299" duration="1894000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
   </component>
 </project>

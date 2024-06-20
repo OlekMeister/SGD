@@ -44,24 +44,21 @@ cmake_ninja_workdir = C$:/Users/Aleksander/Desktop/SGD/build/
 
 build cmake_object_order_depends_target_BunnyWorld: phony || .
 
-build CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_ C$:/Users/Aleksander/Desktop/SGD/src/Platform.cpp || cmake_object_order_depends_target_BunnyWorld
-  DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Platform.cpp.obj.d
+build CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_ C$:/Users/Aleksander/Desktop/SGD/src/Main.cpp || cmake_object_order_depends_target_BunnyWorld
+  DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Main.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/src -IC:/Users/Aleksander/Desktop/SGD/SDL2_Libraries
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
 build CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_ C$:/Users/Aleksander/Desktop/SGD/src/Player.cpp || cmake_object_order_depends_target_BunnyWorld
   DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Player.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/src -IC:/Users/Aleksander/Desktop/SGD/SDL2_Libraries
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
-build CMakeFiles/BunnyWorld.dir/src/main.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_ C$:/Users/Aleksander/Desktop/SGD/src/main.cpp || cmake_object_order_depends_target_BunnyWorld
-  DEP_FILE = CMakeFiles\BunnyWorld.dir\src\main.cpp.obj.d
+build CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj: CXX_COMPILER__BunnyWorld_unscanned_ C$:/Users/Aleksander/Desktop/SGD/src/Platform.cpp || cmake_object_order_depends_target_BunnyWorld
+  DEP_FILE = CMakeFiles\BunnyWorld.dir\src\Platform.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -IC:/Users/Aleksander/Desktop/SGD/src -IC:/Users/Aleksander/Desktop/SGD/SDL2_Libraries
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   OBJECT_FILE_DIR = CMakeFiles\BunnyWorld.dir\src
 
@@ -73,8 +70,8 @@ build CMakeFiles/BunnyWorld.dir/src/main.cpp.obj: CXX_COMPILER__BunnyWorld_unsca
 #############################################
 # Link the executable BunnyWorld.exe
 
-build BunnyWorld.exe: CXX_EXECUTABLE_LINKER__BunnyWorld_ CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj CMakeFiles/BunnyWorld.dir/src/main.cpp.obj | C$:/msys64/mingw64/lib/libSDL2.dll.a C$:/msys64/mingw64/lib/libSDL2_image.dll.a C$:/msys64/mingw64/lib/libSDL2_mixer.dll.a C$:/msys64/mingw64/lib/libSDL2_ttf.dll.a
-  LINK_LIBRARIES = C:/msys64/mingw64/lib/libSDL2.dll.a  C:/msys64/mingw64/lib/libSDL2_image.dll.a  C:/msys64/mingw64/lib/libSDL2_mixer.dll.a  C:/msys64/mingw64/lib/libSDL2_ttf.dll.a  -mwindows  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build BunnyWorld.exe: CXX_EXECUTABLE_LINKER__BunnyWorld_ CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj | C$:/msys64/mingw64/lib/libSDL2.dll.a C$:/msys64/mingw64/lib/libSDL2main.a C$:/msys64/mingw64/lib/libSDL2_image.dll.a C$:/msys64/mingw64/lib/libSDL2_mixer.dll.a C$:/msys64/mingw64/lib/libSDL2_ttf.dll.a
+  LINK_LIBRARIES = C:/msys64/mingw64/lib/libSDL2.dll.a  C:/msys64/mingw64/lib/libSDL2main.a  C:/msys64/mingw64/lib/libSDL2_image.dll.a  C:/msys64/mingw64/lib/libSDL2_mixer.dll.a  C:/msys64/mingw64/lib/libSDL2_ttf.dll.a  -lmingw32  -lSDL2  -lSDL2main  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BunnyWorld.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

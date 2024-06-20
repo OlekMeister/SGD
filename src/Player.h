@@ -4,14 +4,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <vector>
-#include <string> // Dodaj ten include
+#include <string>
 #include "Platform.h"
-
-using namespace std;
 
 class Player {
 public:
-    Player(vector<Platform>& platforms, Mix_Chunk* jumpSound, const string& characterTexture); // DŹWIĘK SKOKU
+    Player(std::vector<Platform>& platforms, Mix_Chunk* jumpSound, const std::string& characterTexture);
     void update();
     void render(SDL_Renderer* renderer);
     void jump();
@@ -20,6 +18,7 @@ public:
     void stop();
     int getVelocityX() const;
     SDL_Rect getRect() const;
+    const std::string& getTexturePath() const;
 
 private:
     SDL_Texture* mTexture;
@@ -27,11 +26,12 @@ private:
     int mVelocityX;
     int mVelocityY;
     int mAccelerationY;
-    vector<Platform>& mPlatforms;
+    std::vector<Platform>& mPlatforms;
     int mJumpCount;
     bool mOnGround;
-    bool mFacingLeft; // W KTÓRĄ STRONE POSTAĆ JEST ZWRÓCONA
+    bool mFacingLeft;
     Mix_Chunk* mJumpSound;
+    std::string mTexturePath;
 };
 
 #endif

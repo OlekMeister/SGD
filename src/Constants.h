@@ -4,4 +4,8 @@
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 1024;
 
+struct Camera {
+    int x, y, w, h;
+};
+
 #endif

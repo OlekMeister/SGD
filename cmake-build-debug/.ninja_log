@@ -1,0 +1,5 @@
+# ninja log v6
+22	660	7405489078318551	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	242da4a71c13be7e
+25	592	7405489078358820	CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj	a77adeeae87ee5ed
+9	233	7405489965681197	build.ninja	6245d32a9a152744
+13	1081	7405489078227782	CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj	f642d74f6dac2ad1

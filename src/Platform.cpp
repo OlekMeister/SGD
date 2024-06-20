@@ -1,17 +1,26 @@
 #include "Platform.h"
+#include <SDL2/SDL_image.h>
+#include <iostream>
+#include "Constants.h"
 
-Platform::Platform(int x, int y, int width, int height) {
-    mRect.x = x;
-    mRect.y = y;
-    mRect.w = width;
-    mRect.h = height;
+extern SDL_Renderer* gRenderer;
+extern Camera camera;
+
+Platform::Platform(int x, int y, int width, int height, const std::string& texturePath)
+    : mRect({ x, y, width, height }), mTexturePath(texturePath) {
+    mTexture = IMG_LoadTexture(gRenderer, mTexturePath.c_str());
 }
 
 void Platform::render(SDL_Renderer* renderer) {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &mRect);
+    SDL_Rect renderRect = mRect;
+    renderRect.y -= camera.y; // Adjust for camera offset
+    SDL_RenderCopy(renderer, mTexture, NULL, &renderRect);
 }
 
-SDL_Rect Platform::getRect() {
+SDL_Rect Platform::getRect() const {
     return mRect;
+}
+
+const std::string& Platform::getTexturePath() const {
+    return mTexturePath;
 }
