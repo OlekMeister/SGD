@@ -17,7 +17,7 @@ Player::Player(std::vector<Platform>& platforms, Mix_Chunk* jumpSound, const std
     mRect.y = SCREEN_HEIGHT / 2;
     mRect.w = 75;
     mRect.h = 100;
-    mTexturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png";
+    mTexturePath = "../pictures/stone.png";
 }
 
 void Player::update() {
@@ -37,10 +37,10 @@ void Player::update() {
                 mOnGround = true;
                 mTexturePath = platform.getTexturePath();
 
-                if (mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
+                if (mTexturePath == "../pictures/swamp.png") {
                     mVelocityX = 0;
                     mSliding = false;
-                } else if (mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/ice.png") {
+                } else if (mTexturePath == "../pictures/ice.png") {
                     mSliding = true;
                 } else {
                     mSliding = false;
@@ -86,7 +86,7 @@ void Player::jump() {
 }
 
 void Player::moveLeft() {
-    if (mOnGround && mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
+    if (mOnGround && mTexturePath == "../pictures/swamp.png") {
         return;
     }
     if (mSliding) {
@@ -100,7 +100,7 @@ void Player::moveLeft() {
 }
 
 void Player::moveRight() {
-    if (mOnGround && mTexturePath == "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png") {
+    if (mOnGround && mTexturePath == "../pictures/swamp.png") {
         return;
     }
     if (mSliding) {

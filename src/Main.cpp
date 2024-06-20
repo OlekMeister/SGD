@@ -51,12 +51,12 @@ SDL_Texture* loadTexture(const std::string& path) {
 }
 
 void loadMedia() {
-    gMenuBackground = loadTexture("C:/Users/Aleksander/Desktop/SGD/pictures/bunnyworld.png");
-    gGameBackground = loadTexture("C:/Users/Aleksander/Desktop/SGD/pictures/background_2.png");
-    gMenuMusic = Mix_LoadMUS("C:/Users/Aleksander/Desktop/SGD/sound/menu.mp3");
-    gGameMusic = Mix_LoadMUS("C:/Users/Aleksander/Desktop/SGD/sound/game.wav");
-    gJumpSound = Mix_LoadWAV("C:/Users/Aleksander/Desktop/SGD/sound/jump.wav");
-    gGameOverSound = Mix_LoadWAV("C:/Users/Aleksander/Desktop/SGD/sound/gameover.wav");
+    gMenuBackground = loadTexture("../pictures/bunnyworld.png");
+    gGameBackground = loadTexture("../pictures/background_2.png");
+    gMenuMusic = Mix_LoadMUS("../sound/menu.mp3");
+    gGameMusic = Mix_LoadMUS("../sound/game.wav");
+    gJumpSound = Mix_LoadWAV("../sound/jump.wav");
+    gGameOverSound = Mix_LoadWAV("../sound/gameover.wav");
 }
 
 void drawTextWithOutline(const string& text, TTF_Font* font, SDL_Color textColor, SDL_Color outlineColor, int x, int y) {
@@ -76,16 +76,16 @@ void drawTextWithOutline(const string& text, TTF_Font* font, SDL_Color textColor
 
 void drawMenuOption(const std::string& text, TTF_Font* font, SDL_Color textColor, int x, int y, bool selected) {
     if (selected) {
-        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);  // Yellow highlight
+        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);
         SDL_Rect highlightRect = { x - 10, y - 5, 220, 40 };
         SDL_RenderFillRect(gRenderer, &highlightRect);
-        SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);  // Reset to black
+        SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);
     }
     drawTextWithOutline(text, font, textColor, { 0, 0, 0, 255 }, x, y);
 }
 
 void main_menu() {
-    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 28);
+    TTF_Font* font = TTF_OpenFont("../fonts/Arial.ttf", 28);
     SDL_Color textColor = { 255, 255, 255, 255 };
 
     bool quit = false;
@@ -118,7 +118,7 @@ void main_menu() {
         }
 
         SDL_RenderClear(gRenderer);
-        SDL_RenderCopy(gRenderer, gMenuBackground, NULL, NULL); // Display menu background
+        SDL_RenderCopy(gRenderer, gMenuBackground, NULL, NULL);
         drawMenuOption("Rozpocznij gre", font, textColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 - 50, selectedOption == 0);
         drawMenuOption("Wyjscie", font, textColor, SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 + 10, selectedOption == 1);
         SDL_RenderPresent(gRenderer);
@@ -129,10 +129,10 @@ void main_menu() {
 
 void drawCharacterOption(const std::string& text, SDL_Texture* texture, TTF_Font* font, SDL_Color textColor, int x, int y, bool selected) {
     if (selected) {
-        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);  // Yellow highlight
+        SDL_SetRenderDrawColor(gRenderer, 255, 255, 0, 255);
         SDL_Rect highlightRect = { x - 10, y - 5, 220, 100 };
         SDL_RenderFillRect(gRenderer, &highlightRect);
-        SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);  // Reset to background color
+        SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);
     }
     SDL_Rect imageRect = { x, y, 75, 75 };
     SDL_RenderCopy(gRenderer, texture, NULL, &imageRect);
@@ -140,14 +140,14 @@ void drawCharacterOption(const std::string& text, SDL_Texture* texture, TTF_Font
 }
 
 void character_selection() {
-    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 28);
+    TTF_Font* font = TTF_OpenFont("../fonts/Arial.ttf", 28);
 
-    SDL_Texture* otisTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_otis.png");
-    SDL_Texture* pyrkaTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_pyrka.png");
-    SDL_Texture* osiolTexture = IMG_LoadTexture(gRenderer, "C:/Users/Aleksander/Desktop/SGD/pictures/bunny_osioł.png");
+    SDL_Texture* otisTexture = IMG_LoadTexture(gRenderer, "../pictures/bunny_otis.png");
+    SDL_Texture* pyrkaTexture = IMG_LoadTexture(gRenderer, "../pictures/bunny_pyrka.png");
+    SDL_Texture* osiolTexture = IMG_LoadTexture(gRenderer, "../pictures/bunny_osioł.png");
 
     SDL_Color textColor = { 255, 255, 255, 255 };
-    SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);  // Ustawienie morelowego tła
+    SDL_SetRenderDrawColor(gRenderer, 255, 165, 127, 255);
 
     bool quit = false;
     SDL_Event e;
@@ -169,14 +169,14 @@ void character_selection() {
                         break;
                     case SDLK_RETURN:
                         if (selectedOption == 0) {
-                            resetGame(); // Reset camera and other settings before starting the game
-                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_otis.png");
+                            resetGame();
+                            game("../pictures/bunny_otis.png");
                         } else if (selectedOption == 1) {
-                            resetGame(); // Reset camera and other settings before starting the game
-                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_pyrka.png");
+                            resetGame();
+                            game("../pictures/bunny_pyrka.png");
                         } else if (selectedOption == 2) {
-                            resetGame(); // Reset camera and other settings before starting the game
-                            game("C:/Users/Aleksander/Desktop/SGD/pictures/bunny_osioł.png");
+                            resetGame();
+                            game("../pictures/bunny_osioł.png");
                         }
                         break;
                     case SDLK_ESCAPE:
@@ -200,7 +200,7 @@ void character_selection() {
 }
 
 void renderGameOverText(int score) {
-    TTF_Font* font = TTF_OpenFont("C:/Users/Aleksander/Desktop/SGD/fonts/Arial.ttf", 72);
+    TTF_Font* font = TTF_OpenFont("../fonts/Arial.ttf", 72);
     SDL_Color textColor = { 255, 0, 0, 255 };
     SDL_Color outlineColor = { 0, 0, 0, 255 };
 
@@ -225,11 +225,11 @@ void generatePlatforms(vector<Platform>& platforms, int& lastPlatformY, int scre
             if (x > SCREEN_WIDTH - 100) x = SCREEN_WIDTH - 100;
         }
 
-        std::string texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png";
+        std::string texturePath = "../pictures/stone.png";
         if (score >= 37) {
-            texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/swamp.png";
+            texturePath = "../pictures/swamp.png";
         } else if (score >= 7) {
-            texturePath = "C:/Users/Aleksander/Desktop/SGD/pictures/ice.png";
+            texturePath = "../pictures/ice.png";
         }
 
         platforms.push_back(Platform(x, y, 150, 30, texturePath));
@@ -240,7 +240,7 @@ void generatePlatforms(vector<Platform>& platforms, int& lastPlatformY, int scre
 void game(const string& character) {
     vector<Platform> platforms;
     int lastPlatformY = SCREEN_HEIGHT - 150;
-    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, lastPlatformY, 150, 30, "C:/Users/Aleksander/Desktop/SGD/pictures/stone.png"));
+    platforms.push_back(Platform(SCREEN_WIDTH / 2 - 50, lastPlatformY, 150, 30, "../pictures/stone.png"));
 
     Player player(platforms, gJumpSound, character);
     bool quit = false;

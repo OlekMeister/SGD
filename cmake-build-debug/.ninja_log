@@ -1,12 +1,14 @@
 # ninja log v6
 27	720	7405961265993125	CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj	1296ff86114a1b6c
-24	751	7405961265953081	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
-2	348	7405961823159016	build.ninja	6245d32a9a152744
-15	1199	7405961265863129	CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj	e1a908477bb298c1
-1206	1302	7405961277778345	BunnyWorld.exe	d931eab48180f67f
-4	672	7405961850290995	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
-672	766	7405961856973957	BunnyWorld.exe	d931eab48180f67f
-6	674	7405963517354152	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
-674	767	7405963524043024	BunnyWorld.exe	d931eab48180f67f
 5	725	7405964914161686	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
+15	1199	7405961265863129	CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj	e1a908477bb298c1
+2	348	7405979006022632	build.ninja	6245d32a9a152744
 725	822	7405964921358799	BunnyWorld.exe	d931eab48180f67f
+2	230	7405979006022632	build.ninja	6245d32a9a152744
+23	640	7405979006666762	CMakeFiles/BunnyWorld.dir/src/Platform.cpp.obj	1296ff86114a1b6c
+19	689	7405979006633565	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
+11	1140	7405979006552946	CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj	e1a908477bb298c1
+1150	1249	7405979017931669	BunnyWorld.exe	d931eab48180f67f
+15	670	7406052678181504	CMakeFiles/BunnyWorld.dir/src/Player.cpp.obj	5a7f979f300bb988
+5	1037	7406052850156731	CMakeFiles/BunnyWorld.dir/src/Main.cpp.obj	e1a908477bb298c1
+1038	1140	7406052860491089	BunnyWorld.exe	d931eab48180f67f
